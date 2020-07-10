@@ -8,10 +8,11 @@ class ListOfStudents extends Component{
         if (this.props.students.length > 0){
             return(
                 <div>
+                    <div>Students</div>
                     <Link to="studentRegistration">Register a New Student</Link>
                     <div>
                         {/* Map students from props */}
-                        {this.props.students.map(student => (<StudentCard student={student}/>))}
+                        {this.props.students.map(student => (<StudentCard key={student.id} student={student}/>))}
                     </div>
                 </div>
             );
@@ -19,6 +20,7 @@ class ListOfStudents extends Component{
         else{
             return(
                 <div>
+                    <div>Students</div>
                     <Link to="studentRegistration">Register a New Student</Link>
                     <div>
                         There are no students registered in the database.
