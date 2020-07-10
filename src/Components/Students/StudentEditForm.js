@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateStudent} from '../../Actions';
 import {Redirect} from 'react-router';
+import '../../Styles/Students/StudentEditForm.css';
 
 class StudentEditForm extends Component{
     constructor(props){
@@ -76,15 +77,23 @@ class StudentEditForm extends Component{
             );
         }
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Student Name</label>
-                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                    <label>GPA</label>
-                    <input type="number" step="0.01" name="gpa" value={this.state.gpa} onChange={this.handleChange}/>
-                    <label>New Student Image</label>
-                    <input type="text" name="image" value={this.state.image} onChange={this.handleChange}/>
-                    <input type="submit" value="Save Changes"/>
+            <div className="student-edit-form-container">
+                <div className="student-edit-header">Edit Student
+                </div>
+                <form className="student-edit-form" className="student-edit-form-container" onSubmit={this.handleSubmit}>
+                    <div className="input-section">
+                        <label className="student-edit-label">Student Name</label>
+                        <input className="student-edit-input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    </div>
+                    <div className="input-section">
+                        <label className="student-edit-label">GPA</label>
+                        <input className="student-edit-input" type="number" step="0.01" name="gpa" value={this.state.gpa} onChange={this.handleChange}/>
+                    </div>
+                    <div className="input-section">
+                        <label className="student-edit-label">New Student Image</label>
+                        <input className="student-edit-input" type="text" name="image" value={this.state.image} onChange={this.handleChange}/>
+                    </div>
+                    <input className="edit-submit-button" type="submit" value="Save Changes"/>
                 </form>
                 {this.state.nameErrors}
                 {this.state.gpaErrors}
