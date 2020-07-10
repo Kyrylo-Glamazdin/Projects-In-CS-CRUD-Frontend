@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class StudentCard extends Component{
     render(){
@@ -14,6 +15,11 @@ class StudentCard extends Component{
             <div>
                 {this.props.student.name}
                 {studentCampusName}
+                <Link to = {"/students/" + this.props.student.id}>
+                    <button>
+                        View
+                    </button>
+                </Link>
             </div>
         );
     }
