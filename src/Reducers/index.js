@@ -32,6 +32,7 @@ const campusesReducer = (prevCampuses = campuses, action) => {
                     return prevCampuses;
                 }
             }
+            return prevCampuses;
         case "DELETE_CAMPUS":
             return prevCampuses.filter(campus => (campus.id !== action.payload.id));
         default:
@@ -52,6 +53,7 @@ const studentsReducer = (prevStudents = students, action) => {
                     return prevStudents;
                 }
             }
+            return prevStudents;
         case "DELETE_STUDENT":
             return prevStudents.filter(student => (student.id !== action.payload.id));
         default:

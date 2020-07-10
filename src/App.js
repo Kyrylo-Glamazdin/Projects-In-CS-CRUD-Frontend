@@ -62,7 +62,7 @@ class App extends Component {
             {/* Routes to the view and edit pages of each campus */}
             {this.props.campuses.map(campus => {
               return(
-                <Route exact path = {"/campuses/" + campus.id}
+                <Route key={"singleCampusView" + campus.id} exact path = {"/campuses/" + campus.id}
                   render = {() => {
                     return(
                       <SingleCampusView campus = {campus}/>
@@ -74,7 +74,7 @@ class App extends Component {
 
             {this.props.campuses.map(campus => {
               return(
-                <Route exact path = {"/campuses/" + campus.id + "/edit"}
+                <Route key={"editCampus" + campus.id} exact path = {"/campuses/" + campus.id + "/edit"}
                   render = {() => {
                     return(
                       <CampusEditForm campus = {campus}/>
@@ -87,7 +87,7 @@ class App extends Component {
             {/* Routes to the view and edit pages of each student */}
             {this.props.students.map(student => {
               return(
-                <Route exact path = {"/students/" + student.id}
+                <Route key={"singleStudentView" + student.id} exact path = {"/students/" + student.id}
                   render = {() => {
                     return(
                       <SingleStudentView student = {student}/>
@@ -99,7 +99,7 @@ class App extends Component {
 
             {this.props.students.map(student => {
               return(
-                <Route exact path = {"/students/" + student.id + "/edit"}
+                <Route key={"editStudent" + student.id} exact path = {"/students/" + student.id + "/edit"}
                   render = {() => {
                     return(
                       <StudentEditForm student = {student}/>
