@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {createStudent} from '../../Actions';
 import {Redirect} from 'react-router';
+import student_image_1 from '../../Styles/Images/standard_student_image_1.jpeg';
+import '../../Styles/Students/StudentRegistrationForm.css';
 
 class StudentRegistrationForm extends Component{
     constructor(props){
@@ -24,7 +26,8 @@ class StudentRegistrationForm extends Component{
         event.preventDefault();
 
         let newStudent = {
-            name: this.state.name
+            name: this.state.name,
+            image: student_image_1
         }
 
         this.props.createStudent(newStudent);
@@ -45,11 +48,13 @@ class StudentRegistrationForm extends Component{
         // }
 
         return(
-            <div>
-                <form onSubmit={this.handleRegistration}>
-                    <label>Student Name</label>
-                    <input type = "text" onChange={this.handleInputChange}/>
-                    <input type="submit" value="Add Student"/>
+            <div className="registration-form-container">
+                <div className="registration-header">Register a New Student
+                </div>
+                <form className="registration-form" onSubmit={this.handleRegistration}>
+                    <label className="registration-label">Student Name</label>
+                    <input className="registration-input" type = "text" onChange={this.handleInputChange}/>
+                    <input className="complete-registration-button" type="submit" value="Add Student"/>
                 </form>
             </div>
         );
