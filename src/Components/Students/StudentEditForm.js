@@ -81,7 +81,7 @@ class StudentEditForm extends Component{
                     <label>Student Name</label>
                     <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
                     <label>GPA</label>
-                    <input type="number" name="gpa" value={this.state.gpa} onChange={this.handleChange}/>
+                    <input type="number" step="0.01" name="gpa" value={this.state.gpa} onChange={this.handleChange}/>
                     <label>New Student Image</label>
                     <input type="text" name="image" value={this.state.image} onChange={this.handleChange}/>
                     <input type="submit" value="Save Changes"/>
