@@ -1,0 +1,83 @@
+.student-card-container{
+    display: inline-block;
+    height: 180px;
+    width: 28%;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    border: solid 1px rgb(203, 203, 203);
+    border-radius: 18px;
+}
+
+.student-card-image{
+    width: 150px;
+    height: 150px;
+    margin: 2%;
+    border-radius: 50%;
+}
+
+.student-text-section{
+    float: right;
+    width: 62%;
+    margin-top: 3%;
+}
+
+.student-card-name{
+    font-size: 28px;
+}
+
+.student-card-gpa{
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.student-card-campus{
+    margin-top: 30px;
+}
+
+.student-card-view-link{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    width: 80%;
+}
+
+.student-card-view-button{
+    width: 90px;
+    height: 26px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(57, 161, 240);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.student-card-view-button:hover{
+    background-color: rgb(30, 148, 238);
+}
+
+.student-card-view-link-edit{
+    margin-top: 20px;
+    text-decoration: none;
+    width: 80%;
+}
+
+.student-card-view-button-edit{
+    width: 90px;
+    height: 26px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(145, 31, 222);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.student-card-view-button-edit:hover{
+    background-color: rgb(126, 18, 198);
+}
+
+.student-card-buttons{
+    display: flex;
+    justify-content: center;
+}

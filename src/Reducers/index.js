@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import student_img_1 from '../Styles/Images/standard_student_image_1.jpeg'
 
 let campuses = [
     {id: 1, name: "Campus 1", address: "Address 1", description: "Description 1", image: ""},
@@ -9,11 +10,11 @@ let campuses = [
 ];
 
 let students = [
-    {id: 1, campusId: 1, name: "Student 1", email: "student1@gmail.com", gpa: 4.0, image: ""},
-    {id: 2, campusId: 3, name: "Student 2", email: "student2@gmail.com", gpa: 3.9, image: ""},
-    {id: 3, campusId: 5, name: "Student 3", email: "student3@gmail.com", gpa: 3.8, image: ""},
-    {id: 4, campusId: 4, name: "Student 4", email: "student4@gmail.com", gpa: 3.7, image: ""},
-    {id: 5, campusId: 3, name: "Student 5", email: "student5@gmail.com", gpa: 3.6, image: ""}
+    {id: 1, campusId: 1, name: "Student 1", email: "student1@gmail.com", gpa: 4.0, image: student_img_1},
+    {id: 2, campusId: 3, name: "Student 2", email: "student2@gmail.com", gpa: 3.9, image: student_img_1},
+    {id: 3, campusId: 5, name: "Student 3", email: "student3@gmail.com", gpa: 3.8, image: student_img_1},
+    {id: 4, campusId: 4, name: "Student 4", email: "student4@gmail.com", gpa: 3.7, image: student_img_1},
+    {id: 5, campusId: 3, name: "Student 5", email: "student5@gmail.com", gpa: 3.6, image: student_img_1}
 ];
 
 let nextCampusId = 6;

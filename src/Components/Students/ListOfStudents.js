@@ -2,15 +2,22 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StudentCard from './StudentCard.js';
+import '../../Styles/Students/ListOfStudents.css';
 
 class ListOfStudents extends Component{
     render(){
         if (this.props.students.length > 0){
             return(
-                <div>
-                    <div>Students</div>
-                    <Link to="studentRegistration">Register a New Student</Link>
+                <div className="students-main-container">
                     <div>
+                        <div className="page-header">Students</div>
+                        <Link className="register-button-link" to="studentRegistration">
+                            <button className="registration-button">
+                                Register a New Student
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="list-of-students">
                         {/* Map students from props */}
                         {this.props.students.map(student => (<StudentCard key={student.id} student={student}/>))}
                     </div>
@@ -19,10 +26,16 @@ class ListOfStudents extends Component{
         }
         else{
             return(
-                <div>
-                    <div>Students</div>
-                    <Link to="studentRegistration">Register a New Student</Link>
+                <div className="students-main-container">
                     <div>
+                        <div className="page-header">Students</div>
+                        <Link className="register-button-link" to="studentRegistration">
+                            <button className="registration-button">
+                                Register a New Student
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="empty-students-list">
                         There are no students registered in the database.
                     </div>
                 </div>
