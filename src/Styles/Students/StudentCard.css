@@ -1,6 +1,6 @@
 .student-card-container{
     display: inline-block;
-    height: 180px;
+    height: 190px;
     width: 28%;
     background-color: whitesmoke;
     margin-top: 10px;
@@ -32,8 +32,12 @@
     font-weight: bolder;
 }
 
+.student-card-email{
+    margin-top: 10px;
+}
+
 .student-card-campus{
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .student-card-view-link{

@@ -1,0 +1,53 @@
+.registered-indicator-text{
+    font-size: 25px;
+}
+
+.student-view-campus-card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 140px;
+    width: 95%;
+    border: solid 1px rgb(52, 51, 51);
+    border-radius: 15px;
+    background-color: white;
+}
+
+.student-view-campus-image{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin: 2%;
+}
+
+.student-view-campus-text-section{
+    float: right;
+    width: 60%;
+    margin-top: 15px;
+}
+
+.student-view-campus-name{
+    font-size: 20px;
+}
+
+.student-view-campus-capacity{
+    margin-top: 20px;
+}
+
+.student-view-campus-edit-link{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.student-view-campus-edit-button{
+    height: 25px;
+    width: 90px;
+    border: none;
+    border-radius: 23px;
+    background-color: rgb(145, 31, 222);
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+.student-view-campus-edit-button:hover{
+    background-color: rgb(126, 18, 198);
+}
