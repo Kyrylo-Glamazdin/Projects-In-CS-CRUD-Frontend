@@ -11,6 +11,7 @@ class StudentEditForm extends Component{
         this.state = {
             name: this.props.student.name,
             gpa: this.props.student.gpa,
+            email: this.props.student.email,
             image: "",
             nameErrors: <div/>,
             gpaErrors: <div/>,
@@ -34,7 +35,7 @@ class StudentEditForm extends Component{
 
         if (this.state.name.length === 0){
             this.setState({
-                nameErrors: <div>Student Name cannot be blank</div>
+                nameErrors: <div className="standard-error-message">Student Name cannot be blank</div>
             })
             errorFound = true;
         }
@@ -44,7 +45,7 @@ class StudentEditForm extends Component{
 
         if (parseFloat(this.state.gpa) < 0 || parseFloat(this.state.gpa) > 4){
             this.setState({
-                gpaErrors: <div>GPA must be a number between 0.0 and 4.0</div>
+                gpaErrors: <div className="standard-error-message">GPA must be a number between 0.0 and 4.0</div>
             })
             errorFound = true;
         }
@@ -58,11 +59,12 @@ class StudentEditForm extends Component{
 
         let updatedStudent = this.props.student;
         if (this.state.image !== ""){
-            updatedStudent = this.state.image
+            updatedStudent.image = this.state.image
         }
         
         updatedStudent.name = this.state.name;
-        updatedStudent.gpa = this.state.gpa
+        updatedStudent.gpa = this.state.gpa;
+        updatedStudent.email = this.state.email;
 
         this.props.updateStudent(updatedStudent)
         //PUT request here
@@ -80,7 +82,7 @@ class StudentEditForm extends Component{
             <div className="student-edit-form-container">
                 <div className="student-edit-header">Edit Student
                 </div>
-                <form className="student-edit-form" className="student-edit-form-container" onSubmit={this.handleSubmit}>
+                <form className="student-edit-form-container" onSubmit={this.handleSubmit}>
                     <div className="input-section">
                         <label className="student-edit-label">Student Name</label>
                         <input className="student-edit-input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
@@ -88,6 +90,10 @@ class StudentEditForm extends Component{
                     <div className="input-section">
                         <label className="student-edit-label">GPA</label>
                         <input className="student-edit-input" type="number" step="0.01" name="gpa" value={this.state.gpa} onChange={this.handleChange}/>
+                    </div>
+                    <div className="input-section">
+                        <label className="student-edit-label">Email</label>
+                        <input className="student-edit-input" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                     </div>
                     <div className="input-section">
                         <label className="student-edit-label">New Student Image</label>

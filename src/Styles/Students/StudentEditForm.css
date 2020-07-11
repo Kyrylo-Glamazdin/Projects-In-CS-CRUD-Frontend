@@ -54,3 +54,11 @@
 .edit-submit-button:hover{
     background-color: rgb(126, 18, 198);
 }
+
+
+.standard-error-message{
+    margin-top: 30px;
+    font-size: 23px;
+    font-weight: 500; 
+    color: rgb(215, 17, 17);
+}

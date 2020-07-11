@@ -1,12 +1,13 @@
 import {combineReducers} from 'redux';
-import student_img_1 from '../Styles/Images/standard_student_image_1.jpeg'
+import student_img_1 from '../Styles/Images/standard_student_image_1.jpeg';
+import college_img_1 from '../Styles/Images/standard_university_image_1.png';
 
 let campuses = [
-    {id: 1, name: "Campus 1", address: "Address 1", description: "Description 1", image: ""},
-    {id: 2, name: "Campus 2", address: "Address 2", description: "Description 2", image: ""},
-    {id: 3, name: "Campus 3", address: "Address 3", description: "Description 3", image: ""},
-    {id: 4, name: "Campus 4", address: "Address 4", description: "Description 4", image: ""},
-    {id: 5, name: "Campus 5", address: "Address 5", description: "Description 5", image: ""}
+    {id: 1, name: "Campus 1", address: "Address 1", description: "Description 1", image: college_img_1},
+    {id: 2, name: "Campus 2", address: "Address 2", description: "Description 2", image: college_img_1},
+    {id: 3, name: "Campus 3", address: "Address 3", description: "Description 3", image: college_img_1},
+    {id: 4, name: "Campus 4", address: "Address 4", description: "Description 4", image: college_img_1},
+    {id: 5, name: "Campus 5", address: "Address 5", description: "Description 5", image: college_img_1}
 ];
 
 let students = [

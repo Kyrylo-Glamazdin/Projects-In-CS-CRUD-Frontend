@@ -22,6 +22,9 @@ class StudentCard extends Component{
                     <div className="student-card-gpa">
                         GPA: {this.props.student.gpa}
                     </div>
+                    <div className="student-card-email">
+                        Email: {this.props.student.email}
+                    </div>
                     <div className="student-card-campus">
                         Student at: {studentCampusName}
                     </div>
