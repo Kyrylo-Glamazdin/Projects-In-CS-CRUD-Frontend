@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {createCampus} from '../../Actions';
 import {Redirect} from 'react-router';
 import campus_image_1 from '../../Styles/Images/standard_university_image_1.png';
+import '../../Styles/Students/StudentRegistrationForm.css'; //same as for campuses
 
 class CampusRegistrationForm extends Component{
     constructor(props){
@@ -47,13 +48,14 @@ class CampusRegistrationForm extends Component{
         // }
 
         return(
-            <div>
-                <div>Add a New Campus
+            <div className="registration-form-container">
+                <div className="registration-header">
+                    Add a New Campus
                 </div>
-                <form onSubmit={this.handleRegistration}>
-                    <label>Campus Name</label>
-                    <input type = "text" onChange={this.handleInputChange}/>
-                    <input type="submit" value="Add Campus"/>
+                <form className="registration-form" onSubmit={this.handleRegistration}>
+                    <label className="registration-label">Campus Name</label>
+                    <input className="registration-input" type = "text" onChange={this.handleInputChange}/>
+                    <input className="complete-registration-button" type="submit" value="Add Campus"/>
                 </form>
             </div>
         );
