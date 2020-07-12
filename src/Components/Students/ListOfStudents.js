@@ -11,7 +11,7 @@ class ListOfStudents extends Component{
                 <div className="students-main-container">
                     <div>
                         <div className="page-header">Students</div>
-                        <Link className="register-button-link" to="studentRegistration">
+                        <Link className="register-button-link" to="/studentRegistration/">
                             <button className="registration-button">
                                 Register a New Student
                             </button>
@@ -29,7 +29,7 @@ class ListOfStudents extends Component{
                 <div className="students-main-container">
                     <div>
                         <div className="page-header">Students</div>
-                        <Link className="register-button-link" to="studentRegistration">
+                        <Link className="register-button-link" to="/studentRegistration/">
                             <button className="registration-button">
                                 Register a New Student
                             </button>
