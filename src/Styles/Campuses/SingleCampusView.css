@@ -1,0 +1,134 @@
+.single-campus-view-container{
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.single-campus-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-campus-image{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.single-campus-view-text-section{
+    float: right;
+    width: 76%;
+    margin-top: 2%;
+}
+
+.single-campus-view-name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 37px;
+}
+
+.single-campus-view-address{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.single-campus-view-description{
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 70%;
+}
+
+.single-campus-view-edit-link{
+    float: right;
+    margin-right: 50px;
+    text-decoration: none;
+}
+
+.single-campus-view-edit-button{
+    height: 45px;
+    width: 180px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(145, 31, 222);
+    color: whitesmoke;
+    font-size: 28px;
+}
+
+.single-campus-view-edit-button:hover{
+    background-color: rgb(126, 18, 198);
+}
+
+.single-campus-view-delete-button{
+    float: right;
+    margin-top: 80px;
+    margin-right: 50px;
+    text-decoration: none;
+    height: 45px;
+    width: 180px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(215, 28, 28);
+    color: whitesmoke;
+    font-size: 28px;
+}
+
+.single-campus-view-delete-button:hover{
+    background-color: rgb(191, 25, 25);
+}
+
+.single-campus-view-students-on-campus-conatiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.students-on-campus-text{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-left: 38%;
+}
+
+.add-students-edit-link{
+    margin-right: 50px;
+    text-decoration: none;
+}
+
+.add-students-edit-button{
+    height: 45px;
+    width: 180px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(47, 152, 47);
+    color: whitesmoke;
+    font-size: 23px;
+}
+
+.add-students-edit-button:hover{
+    background-color: rgb(37, 131, 37);
+}
+
+.add-students-edit-section{
+    display: block;
+    float: right;
+}
+
+.add-students-and-header{
+    width: 100%;
+}
+
+.students-on-campus-list{
+    margin-top: 50px;
+    width: 100%;
+}

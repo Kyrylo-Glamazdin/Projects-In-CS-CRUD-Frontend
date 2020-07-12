@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteCampus} from '../../Actions';
 import SingleCampusViewStudentCard from './SingleCampusViewStudentCard.js';
+import '../../Styles/Campuses/SingleCampusView.css';
 
 class SingleCampusView extends Component{
     constructor(props){
@@ -20,38 +21,51 @@ class SingleCampusView extends Component{
     render(){
 
         let studentsOnCampus = this.props.students.filter(student => (student.campusId === this.props.campus.id));
-        let noStudentsText = "";
+        let studentsOnCampusText = "Student on Campus";
         if (studentsOnCampus.length === 0){
-            noStudentsText = "This campus has no students."
+            studentsOnCampusText = "This campus has no students."
         }
 
         return(
-            <div>
-                <div>
-                    {this.props.campus.name}
-                    {this.props.campus.address}
-                    {this.props.campus.description}
-                    <Link to = {"/campuses/" + this.props.campus.id + "/edit/"}>
-                        <button>
-                            Edit
+            <div className="single-campus-main">
+                <div className="single-campus-view-container">
+                <img className="single-campus-image" src = {this.props.campus.image} alt="campus"/>
+                    <div className="single-campus-view-text-section">
+                        <Link className="single-campus-view-edit-link" to = {"/campuses/" + this.props.campus.id + "/edit/"}>
+                            <button className="single-campus-view-edit-button">
+                                Edit
+                            </button>
+                        </Link>
+                        <div className="single-campus-view-name">
+                            {this.props.campus.name}
+                        </div>
+                        <div className="single-campus-view-address">
+                            Address: {this.props.campus.address}
+                        </div>
+                        <div className="single-campus-view-description">
+                            {this.props.campus.description}
+                        </div>
+                        <button className="single-campus-view-delete-button" onClick={this.removeCampus}>
+                            Delete
                         </button>
-                    </Link>
-                    <button onClick={this.removeCampus}>
-                        Delete
-                    </button>
-                </div>
-                <div>
-                    <Link to = {"/campuses/" + this.props.campus.id + "/edit/"}>
-                        <button>
-                            Add Students
-                        </button>
-                    </Link>
-                    <div>
-                        {noStudentsText}
                     </div>
-                    <div>
+                </div>
+                <div className="single-campus-view-students-on-campus-conatiner">
+                    <div className="add-students-and-header">
+                        <div className="students-on-campus-text">
+                            {studentsOnCampusText}
+                        </div>
+                        <div className="add-students-edit-section">
+                            <Link className="add-students-edit-link" to = {"/campuses/" + this.props.campus.id + "/edit/"}>
+                                <button className="add-students-edit-button">
+                                    Add Students
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="students-on-campus-list">
                         {studentsOnCampus.map(student => (
-                            <SingleCampusViewStudentCard student={student}/>
+                            <SingleCampusViewStudentCard studentCampusName={this.props.campus.name} student={student}/>
                         ))}
                     </div>
                 </div>

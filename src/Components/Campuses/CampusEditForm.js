@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {updateCampus, updateStudent} from '../../Actions';
 import {Redirect} from 'react-router';
 import EditCampusStudentList from './EditCampusStudentList.js';
+import '../../Styles/Campuses/CampusEditForm.css';
 
 class CampusEditForm extends Component{
     constructor(props){
@@ -114,35 +115,35 @@ class CampusEditForm extends Component{
         let allOtherStudents = this.props.students.filter(student => (student.campusId !== this.props.campus.id));
 
         return(
-            <div>
-                <div>Edit Campus
+            <div className="campus-edit-form-container">
+                <div className="campus-edit-header">Edit Campus
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>Campus Name</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                <form className="campus-edit-form-container" onSubmit={this.handleSubmit}>
+                    <div className="input-section">
+                        <label className="campus-edit-label">Campus Name</label>
+                        <input className="campus-edit-input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
                     </div>
-                    <div>
-                        <label>Location</label>
-                        <input type="text" name="address" value={this.state.address} onChange={this.handleChange}/>
+                    <div className="input-section">
+                        <label className="campus-edit-label">Location</label>
+                        <input className="campus-edit-input" type="text" name="address" value={this.state.address} onChange={this.handleChange}/>
                     </div>
-                    <div>
-                        <label>New Campus Image</label>
-                        <input type="text" name="image" value={this.state.image} onChange={this.handleChange}/>
+                    <div className="input-section">
+                        <label className="campus-edit-label">New Campus Image</label>
+                        <input className="campus-edit-input" type="text" name="image" value={this.state.image} onChange={this.handleChange}/>
                     </div>
-                    <div>
-                        <label>Description</label>
-                        <input type="text" name="description" value={this.state.description} onChange={this.handleChange}/>
+                    <div className="input-section">
+                        <label className="campus-edit-label">Description</label>
+                        <textarea className="campus-edit-description-input" type="text" name="description" value={this.state.description} onChange={this.handleChange}/>
                     </div>
-                    <input type="submit" value="Save Changes"/>
+                    <input className="campus-edit-submit-button" type="submit" value="Save Changes"/>
                 </form>
                 {this.state.nameErrors}
-                <div>
-                    <div>
+                <div className="campus-edit-form-student-section">
+                    <div className="campus-edit-header">
                         Students On Campus
                     </div>
-                    <div>
-                        <select onChange={this.handleStudentSelection}>
+                    <div className="edit-campus-student-selection-section">
+                        <select className="edit-campus-select-student-dropdown" onChange={this.handleStudentSelection}>
                             <option value={this.state.selectedStudent} selected hidden> 
                                 Select Student
                             </option> 
@@ -152,11 +153,11 @@ class CampusEditForm extends Component{
                                 </option>
                             ))}
                         </select>
-                        <button onClick={this.submitStudentSelection}>
+                        <button className="edit-campus-select-student-button" onClick={this.submitStudentSelection}>
                             Add to Campus
                         </button>
                     </div>
-                    <div>
+                    <div className="edit-campus-list-of-students-section">
                         <EditCampusStudentList studentsOnCampus={studentsOnCampus} removeFromCampus={this.removeFromCampus}/>
                     </div>
                 </div>

@@ -1,0 +1,88 @@
+.single-campus-student-card-container{
+    display: inline-block;
+    height: 190px;
+    width: 40%;
+    background-color: rgb(249, 249, 249);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 6%;
+    border: solid 1px rgb(203, 203, 203);
+    border-radius: 18px;
+    padding-bottom: 12px;
+}
+
+.single-campus-student-card-image{
+    width: 150px;
+    height: 150px;
+    margin: 2%;
+    border-radius: 50%;
+}
+
+.single-campus-student-text-section{
+    float: right;
+    width: 62%;
+    margin-top: 3%;
+}
+
+.single-campus-student-card-name{
+    font-size: 28px;
+}
+
+.single-campus-student-card-gpa{
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.single-campus-student-card-email{
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.single-campus-student-card-campus{
+    margin-top: 10px;
+}
+
+.single-campus-student-card-view-link{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.single-campus-student-card-view-button{
+    width: 90px;
+    height: 26px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(57, 161, 240);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.single-campus-student-card-view-button:hover{
+    background-color: rgb(30, 148, 238);
+}
+
+.single-campus-student-card-view-link-edit{
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.single-campus-student-card-view-button-edit{
+    width: 90px;
+    height: 26px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(145, 31, 222);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.single-campus-student-card-view-button-edit:hover{
+    background-color: rgb(126, 18, 198);
+}
+
+.single-campus-student-card-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25%;
+}
