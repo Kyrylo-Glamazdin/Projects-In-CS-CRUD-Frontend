@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteCampus} from '../../Actions';
 import CampusCard from './CampusCard.js';
+import '../../Styles/Campuses/ListOfCampuses.css';
 
 class ListOfCampuses extends Component{
     constructor(props){
@@ -18,9 +19,16 @@ class ListOfCampuses extends Component{
     render(){
         if (this.props.campuses.length > 0){
             return(
-                <div>
-                    <Link to="campusRegistration">Register a New Campus</Link>
+                <div className="campuses-main-container">
                     <div>
+                        <div className="page-header">Campuses</div>
+                        <Link className="register-button-link" to="/campusRegistration/">
+                            <button className="registration-button">
+                                Register a New Campus
+                            </button>
+                        </Link>
+                        </div>
+                    <div className="list-of-students">
                         {/* Map campuses from props */}
                         {this.props.campuses.map(campus => (<CampusCard campus={campus} removeCampus={this.removeCampus}/>))}
                     </div>
@@ -29,10 +37,17 @@ class ListOfCampuses extends Component{
         }
         else{
             return(
-                <div>
-                    <Link to="campusRegistration">Register a New Campus</Link>
+                <div className="campuses-main-container">
                     <div>
-                        There are no campuses registered in the database.
+                        <div className="page-header">Campuses</div>
+                        <Link className="register-button-link" to="/campusRegistration/">
+                            <button className="registration-button">
+                                Register a New Campus
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="empty-campuses-list">
+                        There are no students registered in the database.
                     </div>
                 </div>
             );

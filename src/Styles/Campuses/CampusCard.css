@@ -1,4 +1,4 @@
-.student-card-container{
+.campus-card-container{
     display: inline-block;
     height: 190px;
     width: 28%;
@@ -8,47 +8,38 @@
     margin-left: 4%;
     border: solid 1px rgb(203, 203, 203);
     border-radius: 18px;
-    padding-bottom: 12px;
 }
 
-.student-card-image{
+.campus-card-image{
     width: 150px;
     height: 150px;
     margin: 2%;
     border-radius: 50%;
 }
 
-.student-text-section{
+.campus-text-section{
     float: right;
     width: 62%;
     margin-top: 3%;
 }
 
-.student-card-name{
+.campus-card-name{
     font-size: 28px;
 }
 
-.student-card-gpa{
-    margin-top: 10px;
+.campus-card-num-of-students{
+    margin-top: 30px;
+    margin-bottom: 20px;
     font-weight: bolder;
 }
 
-.student-card-email{
-    font-size: 15px;
-    margin-top: 10px;
-}
-
-.student-card-campus{
-    margin-top: 10px;
-}
-
-.student-card-view-link{
+.campus-card-view-link{
     display: inline-block;
     margin-top: 20px;
     text-decoration: none;
 }
 
-.student-card-view-button{
+.campus-card-view-button{
     width: 90px;
     height: 26px;
     border: none;
@@ -58,18 +49,17 @@
     font-size: 20px;
 }
 
-.student-card-view-button:hover{
+.campus-card-view-button:hover{
     background-color: rgb(30, 148, 238);
 }
 
-.student-card-view-link-edit{
+.campus-card-view-link-edit{
     margin-top: 20px;
     text-decoration: none;
-    /* margin-right: 160px; */
 }
 
-.student-card-view-button-edit{
-    width: 90px;
+.campus-card-view-button-edit{
+    width: 84px;
     height: 26px;
     border: none;
     border-radius: 25px;
@@ -78,12 +68,28 @@
     font-size: 20px;
 }
 
-.student-card-view-button-edit:hover{
+.campus-card-view-button-edit:hover{
     background-color: rgb(126, 18, 198);
 }
 
-.student-card-buttons{
+.campus-card-view-button-delete{
+    margin-top: 20px;
+    text-decoration: none;
+    width: 90px;
+    height: 26px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(215, 28, 28);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.campus-card-view-button-delete:hover{
+    background-color: rgb(191, 25, 25);
+}
+
+.campus-card-buttons{
     display: flex;
     justify-content: space-between;
-    margin-right: 25%;
+    margin-right: 20px;
 }
