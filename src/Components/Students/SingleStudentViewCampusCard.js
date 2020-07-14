@@ -26,7 +26,7 @@ class SingleStudentViewCampusCard extends Component{
                         This student is registered to a campus
                     </div>
                     <div className="student-view-campus-card">
-                        <img className="student-view-campus-image" src = {this.props.campus[0].image}/>
+                        <img className="student-view-campus-image" src = {this.props.campus[0].image} alt="campus" />
                         <div className="student-view-campus-text-section">
                             <div className="student-view-campus-name">
                                 {this.props.campus[0].name}

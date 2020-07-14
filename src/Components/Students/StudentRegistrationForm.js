@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {createStudent} from '../../Actions';
 import {Redirect} from 'react-router';
+import axios from 'axios';
 import student_image_1 from '../../Styles/Images/standard_student_image_1.jpeg';
 import '../../Styles/Students/StudentRegistrationForm.css';
 
@@ -11,6 +12,7 @@ class StudentRegistrationForm extends Component{
 
         this.state = {
             name: "",
+            newStudentId: -1,
             registered: false
         }
 
@@ -22,7 +24,7 @@ class StudentRegistrationForm extends Component{
         this.setState({name: event.target.value})
     }
 
-    handleRegistration(event){
+    async handleRegistration(event){
         event.preventDefault();
 
         let newStudent = {
@@ -30,22 +32,27 @@ class StudentRegistrationForm extends Component{
             image: student_image_1
         }
 
-        this.props.createStudent(newStudent);
-
         //here get the id of a new student to redirect to that student's page
-
-        this.setState({registered: true})
+        await axios.post("http://localhost:4200/api/students", newStudent)
+        .then(res => {
+            let createdStudent = res.data;
+            this.setState({
+                newStudentId: createdStudent.id,
+                registered: true
+            })
+            this.props.createStudent(createdStudent);
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
-        
-        /* UNCOMMENT WHEN DB IS SET UP AND WE CAN GET THE ID OF A NEW STUDENT */
-
-        // if (this.state.registered){
-        //     return(
-        //         <Redirect to = {"/students/" + this.state.newStudentId}/>
-        //     );
-        // }
+        if (this.state.registered && this.state.newStudentId !== -1){
+            return(
+                <Redirect to = {"/students/" + this.state.newStudentId}/>
+            );
+        }
 
         return(
             <div className="registration-form-container">

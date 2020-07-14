@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
+import axios from 'axios';
+import {createCampus, createStudent} from './Actions';
 
 import Home from './Components/Home.js';
 
@@ -30,12 +32,30 @@ class App extends Component {
 
   //loads campuses from the database
   async loadCampuses(){
-    //axios call
+    axios.get("http://localhost:4200/api/campuses")
+    .then(res => {
+      let result = res.data;
+      for (let i = 0; i < result.length; i++){
+        this.props.createCampus(result[i]);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   //loads students from the database
   async loadStudents(){
-    //axios call
+    axios.get("http://localhost:4200/api/students")
+    .then(res => {
+      let result = res.data;
+      for (let i = 0; i < result.length; i++){
+        this.props.createStudent(result[i]);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   render(){
@@ -125,5 +145,6 @@ const mapStateToProps = state => {
 }
 
 export default connect (mapStateToProps, {
-  //functions for creating campuses and students from Actions (fill in when the db is set up)
+  createCampus,
+  createStudent
 })(App);
