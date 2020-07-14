@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import axios from 'axios';
 import {deleteCampus} from '../../Actions';
 import SingleCampusViewStudentCard from './SingleCampusViewStudentCard.js';
 import '../../Styles/Campuses/SingleCampusView.css';
@@ -13,9 +14,13 @@ class SingleCampusView extends Component{
     }
 
     removeCampus(){
-        //axios delete
-        //then ()
-        this.props.deleteCampus(this.props.campus)
+        axios.delete("http://localhost:4200/api/campuses/" + this.props.campus.id)
+        .then(() => {
+            this.props.deleteCampus(this.props.campus)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateCampus, updateStudent} from '../../Actions';
 import {Redirect} from 'react-router';
+import axios from 'axios';
 import EditCampusStudentList from './EditCampusStudentList.js';
 import '../../Styles/Campuses/CampusEditForm.css';
 
@@ -71,9 +72,13 @@ class CampusEditForm extends Component{
         updatedCampus.description = this.state.description;
 
         this.props.updateCampus(updatedCampus)
-        //PUT request here
-
-        this.setState({edited: true})
+        axios.put("http://localhost:4200/api/campuses/" + this.props.campus.id, updatedCampus)
+        .then(() => {
+            this.setState({edited: true})
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     handleStudentSelection(event){
@@ -82,7 +87,7 @@ class CampusEditForm extends Component{
         })
     }
 
-    submitStudentSelection(){
+    async submitStudentSelection(){
         if (this.state.selectedStudent === -1){
             return
         }
@@ -94,13 +99,21 @@ class CampusEditForm extends Component{
         let updatedStudent = updatedStudentArray[0];
         updatedStudent.campusId = parseInt(this.props.campus.id)
         this.props.updateStudent(updatedStudent)
-        //PUT request here
+        await axios.put("http://localhost:4200/api/students/" + updatedStudent.id, updatedStudent)
+        .catch(err => {
+            console.log(err);
+        })
         this.forceUpdate();
     }
 
-    removeFromCampus(student){
-        student.campusId = -1;
-        this.props.updateStudent(student);
+    async removeFromCampus(student){
+        let updatedStudent = student;
+        updatedStudent.campusId = null;
+        this.props.updateStudent(updatedStudent);
+        await axios.put("http://localhost:4200/api/students/" + updatedStudent.id, updatedStudent)
+        .catch(err => {
+            console.log(err);
+        })
         this.forceUpdate();
     }
 

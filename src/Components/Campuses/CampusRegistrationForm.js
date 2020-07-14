@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {createCampus} from '../../Actions';
+import axios from 'axios';
 import {Redirect} from 'react-router';
 import campus_image_1 from '../../Styles/Images/standard_university_image_1.png';
 import '../../Styles/Students/StudentRegistrationForm.css'; //same as for campuses
 
 class CampusRegistrationForm extends Component{
+
     constructor(props){
         super(props)
 
         this.state = {
             name: "",
+            newCampusId: -1,
             registered: false
         }
 
@@ -22,7 +25,8 @@ class CampusRegistrationForm extends Component{
         this.setState({name: event.target.value})
     }
 
-    handleRegistration(event){
+
+    async handleRegistration(event){
         event.preventDefault();
 
         let newCampus = {
@@ -30,22 +34,27 @@ class CampusRegistrationForm extends Component{
             image: campus_image_1
         }
 
-        this.props.createCampus(newCampus);
-
         //here get the id of a new campus to redirect to that campus's page
-
-        this.setState({registered: true})
+        await axios.post("http://localhost:4200/api/campuses", newCampus)
+        .then(res => {
+            let createdCampus = res.data;
+            this.setState({
+                newCampusId: createdCampus.id,
+                registered: true
+            })
+            this.props.createCampus(createdCampus);
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
-        
-        /* UNCOMMENT WHEN DB IS SET UP AND WE CAN GET THE ID OF A NEW CAMPUS */
-
-        // if (this.state.registered){
-        //     return(
-        //         <Redirect to = {"/campuses/" + this.state.newCampusId}/>
-        //     );
-        // }
+        if (this.state.registered && this.state.newCampusId !== -1){
+            return(
+                <Redirect to = {"/campuses/" + this.state.newCampusId}/>
+            );
+        }
 
         return(
             <div className="registration-form-container">

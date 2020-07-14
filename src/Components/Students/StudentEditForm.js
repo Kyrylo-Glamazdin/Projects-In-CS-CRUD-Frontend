@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateStudent} from '../../Actions';
 import {Redirect} from 'react-router';
+import axios from 'axios';
 import '../../Styles/Students/StudentEditForm.css';
 
 class StudentEditForm extends Component{
@@ -67,9 +68,13 @@ class StudentEditForm extends Component{
         updatedStudent.email = this.state.email;
 
         this.props.updateStudent(updatedStudent)
-        //PUT request here
-
-        this.setState({edited: true})
+        axios.put("http://localhost:4200/api/students/" + this.props.student.id, updatedStudent)
+        .then(() => {
+            this.setState({edited: true})
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     render(){

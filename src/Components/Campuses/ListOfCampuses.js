@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import axios from 'axios';
 import {deleteCampus} from '../../Actions';
 import CampusCard from './CampusCard.js';
 import '../../Styles/Campuses/ListOfCampuses.css';
@@ -13,7 +14,13 @@ class ListOfCampuses extends Component{
     }
 
     removeCampus(campus){
-        this.props.deleteCampus(campus)
+        axios.delete("http://localhost:4200/api/campuses/" + campus.id)
+        .then(() => {
+            this.props.deleteCampus(campus)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
@@ -28,7 +35,7 @@ class ListOfCampuses extends Component{
                             </button>
                         </Link>
                         </div>
-                    <div className="list-of-students">
+                    <div className="list-of-campuses">
                         {/* Map campuses from props */}
                         {this.props.campuses.map(campus => (<CampusCard campus={campus} removeCampus={this.removeCampus}/>))}
                     </div>
@@ -47,7 +54,7 @@ class ListOfCampuses extends Component{
                         </Link>
                     </div>
                     <div className="empty-campuses-list">
-                        There are no students registered in the database.
+                        There are no campuses registered in the database.
                     </div>
                 </div>
             );

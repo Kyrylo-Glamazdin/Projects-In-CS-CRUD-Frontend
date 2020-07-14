@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import axios from 'axios';
 import {updateStudent, deleteStudent} from '../../Actions';
 import SingleStudentViewCampusCard from './SingleStudentViewCampusCard.js';
 import '../../Styles/Students/SingleStudentView.css';
@@ -20,9 +21,13 @@ class SingleStudentView extends PureComponent{
     }
 
     handleDelete(){
-        //axios delete
-        //.then()
-        this.props.deleteStudent(this.props.student);
+        axios.delete("http://localhost:4200/api/students/" + this.props.student.id)
+        .then(() => {
+            this.props.deleteStudent(this.props.student);
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     handleCampusSelection(event){
@@ -31,19 +36,25 @@ class SingleStudentView extends PureComponent{
         })
     }
 
-    submitCampusSelection(){
+    async submitCampusSelection(){
         let updatedStudent = this.props.student;
         updatedStudent.campusId = parseInt(this.state.selectedCampus)
         this.props.updateStudent(updatedStudent)
-        //PUT request here
+        await axios.put("http://localhost:4200/api/students/" + updatedStudent.id, updatedStudent)
+        .catch(err => {
+            console.log(err);
+        })
         this.forceUpdate();
     }
 
-    removeCampusFromStudent(){
+    async removeCampusFromStudent(){
         let updatedStudent = this.props.student;
-        updatedStudent.campusId = -1;
+        updatedStudent.campusId = null;
         this.props.updateStudent(updatedStudent)
-        //PUT request here
+        await axios.put("http://localhost:4200/api/students/" + updatedStudent.id, updatedStudent)
+        .catch(err => {
+            console.log(err);
+        })
         this.forceUpdate();
     }
 
