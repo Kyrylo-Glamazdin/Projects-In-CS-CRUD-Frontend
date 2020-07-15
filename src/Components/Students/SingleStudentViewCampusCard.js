@@ -34,6 +34,9 @@ class SingleStudentViewCampusCard extends Component{
                             <div className="student-view-campus-capacity">
                                 {numOfStudentsText}
                             </div>
+                            <Link className="student-view-campus-edit-link" to = {"/campuses/" + this.props.campus[0].id}>
+                                <button className="student-view-campus-button">View</button>
+                            </Link>
                             <Link className="student-view-campus-edit-link" to = {"/campuses/" + this.props.campus[0].id + "/edit/"}>
                                 <button className="student-view-campus-edit-button">Edit</button>
                             </Link>
