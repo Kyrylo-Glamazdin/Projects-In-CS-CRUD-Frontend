@@ -48,6 +48,20 @@
     font-size: 18px;
 }
 
+.student-view-campus-button{
+    height: 25px;
+    width: 90px;
+    border: none;
+    border-radius: 23px;
+    background-color: rgb(57, 161, 240);
+    color: whitesmoke;
+    font-size: 18px;
+}
+
 .student-view-campus-edit-button:hover{
     background-color: rgb(126, 18, 198);
+}
+
+.student-view-campus-button:hover{
+    background-color: rgb(30, 148, 238);
 }
