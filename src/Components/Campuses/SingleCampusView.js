@@ -6,6 +6,7 @@ import {deleteCampus} from '../../Actions';
 import SingleCampusViewStudentCard from './SingleCampusViewStudentCard.js';
 import '../../Styles/Campuses/SingleCampusView.css';
 
+//component for campus's single view. displays all campus-related info, including currently registered students
 class SingleCampusView extends Component{
     constructor(props){
         super(props)
@@ -13,7 +14,9 @@ class SingleCampusView extends Component{
         this.removeCampus = this.removeCampus.bind(this);
     }
 
+    //function for removing the campus from the database
     removeCampus(){
+        //remove from the database, then remove locally
         axios.delete("http://localhost:4200/api/campuses/" + this.props.campus.id)
         .then(() => {
             this.props.deleteCampus(this.props.campus)
@@ -25,12 +28,14 @@ class SingleCampusView extends Component{
 
     render(){
 
+        //find the number of students on campus
         let studentsOnCampus = this.props.students.filter(student => (student.campusId === this.props.campus.id));
         let studentsOnCampusText = "Student on Campus";
         if (studentsOnCampus.length === 0){
             studentsOnCampusText = "This campus has no students."
         }
 
+        //display info
         return(
             <div className="single-campus-main">
                 <div className="single-campus-view-container">
@@ -68,6 +73,7 @@ class SingleCampusView extends Component{
                             </Link>
                         </div>
                     </div>
+                    {/* list of students on campus */}
                     <div className="students-on-campus-list">
                         {studentsOnCampus.map(student => (
                             <SingleCampusViewStudentCard studentCampusName={this.props.campus.name} student={student}/>

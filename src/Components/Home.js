@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../Styles/Home.css';
 
+//navbar component that always shows the links to different manage options
 class Home extends Component{
     render(){
         return(

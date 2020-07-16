@@ -1,3 +1,7 @@
+//all possible action for the reducers
+
+/* CAMPUSES */
+
 export const createCampus = campus => {
     return {
         type: 'CREATE_CAMPUS',
@@ -18,6 +22,8 @@ export const deleteCampus = campus => {
         payload: campus
     }
 }
+
+/* STUDENTS */
 
 export const createStudent = student => {
     return {

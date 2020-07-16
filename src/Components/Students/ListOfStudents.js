@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import StudentCard from './StudentCard.js';
 import '../../Styles/Students/ListOfStudents.css';
 
+//component that shows the list of students in the database
 class ListOfStudents extends Component{
+    //show each registered student or display an informative message indicating that there's no students in the database
     render(){
         if (this.props.students.length > 0){
             return(
@@ -35,6 +37,7 @@ class ListOfStudents extends Component{
                             </button>
                         </Link>
                     </div>
+                    {/* message that there's no students */}
                     <div className="empty-students-list">
                         There are no students registered in the database.
                     </div>

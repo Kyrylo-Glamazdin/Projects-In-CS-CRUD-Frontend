@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import '../../Styles/Students/SingleStudentViewCampusCard.css';
 
+//component for displaying campus-related info on student's single view profile
 class SingleStudentViewCampusCard extends Component{
     render(){
         if (this.props.campus.length > 0){
+            //calculate the number of students
             let numOfStudents = 0;
             for (let i = 0; i < this.props.students.length; i++){
                 if (this.props.students[i].campusId === this.props.campus[0].id){
@@ -20,6 +22,7 @@ class SingleStudentViewCampusCard extends Component{
                 numOfStudentsText = numOfStudents + " Students";
             }
 
+            //show campus-related info
             return(
                 <div>
                     <div className="registered-indicator-text">
@@ -46,6 +49,7 @@ class SingleStudentViewCampusCard extends Component{
             );
         }
         else{
+            //show that the student is not registered in a campus
             return(
                 <div className="registered-indicator-text">
                     This student is not registered to a campus

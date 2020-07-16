@@ -5,6 +5,7 @@ import {Redirect} from 'react-router';
 import axios from 'axios';
 import '../../Styles/Students/StudentEditForm.css';
 
+//form for editing the student
 class StudentEditForm extends Component{
     constructor(props){
         super(props)
@@ -14,7 +15,7 @@ class StudentEditForm extends Component{
             lastName: this.props.student.lastName,
             gpa: this.props.student.gpa,
             email: this.props.student.email,
-            image: this.props.student.image,
+            image: "",
             nameErrors: <div/>,
             emailErrors: <div/>,
             gpaErrors: <div/>,
@@ -31,12 +32,15 @@ class StudentEditForm extends Component{
         })
     }
 
+    //function for submitting the edit form
     handleSubmit(event){
         event.preventDefault();
 
         let errorFound = false;
 
+        //validate student name input
         if (this.state.firstName.length === 0 || this.state.lastName.length === 0){
+            //display error if input is incorrect
             this.setState({
                 nameErrors: <div className="standard-error-message">Student first or last name cannot be blank</div>
             })
@@ -46,7 +50,9 @@ class StudentEditForm extends Component{
             this.setState({nameErrors: <div/>})
         }
 
+        //validate student email input
         if (this.state.email.length === 0){
+            //display error if input is incorrect
             this.setState({
                 emailErrors: <div className="standard-error-message">Email field must contain a valid email</div>
             })
@@ -56,7 +62,9 @@ class StudentEditForm extends Component{
             this.setState({emailErrors: <div/>})
         }
 
+        //validate student gpa input
         if (parseFloat(this.state.gpa) < 0 || parseFloat(this.state.gpa) > 4){
+            //display error if input is incorrect
             this.setState({
                 gpaErrors: <div className="standard-error-message">GPA must be a number between 0.0 and 4.0</div>
             })
@@ -66,10 +74,12 @@ class StudentEditForm extends Component{
             this.setState({gpaErrors: <div/>})
         }
 
+        //prevent the form from submitting if there's input errors
         if (errorFound){
             return
         }
 
+        //update image only if image field was modified (and therefore isn't blank)
         let updatedStudent = this.props.student;
         if (this.state.image !== ""){
             updatedStudent.image = this.state.image
@@ -80,6 +90,7 @@ class StudentEditForm extends Component{
         updatedStudent.gpa = this.state.gpa;
         updatedStudent.email = this.state.email;
 
+        //update local store and send a put request to the server
         this.props.updateStudent(updatedStudent)
         axios.put("http://localhost:4200/api/students/" + this.props.student.id, updatedStudent)
         .then(() => {
@@ -91,11 +102,13 @@ class StudentEditForm extends Component{
     }
 
     render(){
+        //redirect if edit form was submitted successfully
         if (this.state.edited){
             return(
                 <Redirect to={"/students/" + this.props.student.id}/>
             );
         }
+        //display the form
         return(
             <div className="student-edit-form-container">
                 <div className="student-edit-header">Edit Student
@@ -123,6 +136,7 @@ class StudentEditForm extends Component{
                     </div>
                     <input className="edit-submit-button" type="submit" value="Save Changes"/>
                 </form>
+                {/* input errors */}
                 {this.state.nameErrors}
                 {this.state.emailErrors}
                 {this.state.gpaErrors}
