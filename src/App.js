@@ -82,7 +82,7 @@ class App extends Component {
         <Router>
           <Route path = "/" render={HomeComponent}/>
           <Switch>
-            <Route exact path = "/homepage" component ={HomePageComponent}/>
+            <Route exact path = "/" component ={HomePageComponent}/>
             <Route exact path = "/campuses" component={ListOfCampusesComponent}/>
             <Route exact path = "/campusRegistration" component={CampusRegistrationFormComponent}/>
 
