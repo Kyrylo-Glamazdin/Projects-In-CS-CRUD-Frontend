@@ -8,7 +8,7 @@ class Homepage extends Component{
     render(){
         return(
             <div className="Homepage">
-                Welcome to our Student and Campus Manager
+                <div>Welcome to our Student and Campus Manager</div>
                 <img src = {Logo} alt ="Logo" class = "center"
                 height = {700}
                 width = {700}
