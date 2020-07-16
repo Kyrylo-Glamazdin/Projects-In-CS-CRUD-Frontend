@@ -17,10 +17,7 @@ class StudentCard extends Component{
                 <img className="student-card-image" src = {this.props.student.image} alt="student"/>
                 <div className="student-text-section">
                     <div className="student-card-name">
-                        {this.props.student.firstName}
-                    </div>
-                    <div className="student-card-name">
-                        {this.props.student.lastMame}
+                        {this.props.student.firstName} {this.props.student.lastName}
                     </div>
                     <div className="student-card-gpa">
                         GPA: {this.props.student.gpa}

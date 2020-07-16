@@ -1,95 +1,96 @@
-.campus-card-container{
+.campus-card-container {
     display: inline-block;
-    height: 190px;
+    height: 10vw;
     width: 28%;
     background-color: whitesmoke;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     margin-left: 4%;
     border: solid 1px rgb(203, 203, 203);
-    border-radius: 18px;
+    border-radius: 1vw;
 }
 
-.campus-card-image{
-    width: 150px;
-    height: 150px;
+.campus-card-image {
+    width: 8vw;
+    height: 8vw;
     margin: 2%;
     border-radius: 50%;
 }
 
-.campus-text-section{
+.campus-text-section {
     float: right;
-    width: 62%;
+    width: 58%;
     margin-top: 3%;
 }
 
-.campus-card-name{
-    font-size: 28px;
+.campus-card-name {
+    font-size: 1.5vw;
 }
 
-.campus-card-num-of-students{
-    margin-top: 30px;
-    margin-bottom: 20px;
+.campus-card-num-of-students {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     font-weight: bolder;
+    font-size: .8vw
 }
 
-.campus-card-view-link{
+.campus-card-view-link {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 1vw;
     text-decoration: none;
 }
 
-.campus-card-view-button{
-    width: 90px;
-    height: 26px;
+.campus-card-view-button {
+    width: 4vw;
+    height: 1.5vw;
     border: none;
-    border-radius: 25px;
+    border-radius: 1vw;
     background-color: rgb(57, 161, 240);
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
-.campus-card-view-button:hover{
+.campus-card-view-button:hover {
     background-color: rgb(30, 148, 238);
 }
 
-.campus-card-view-link-edit{
-    margin-top: 20px;
+.campus-card-view-link-edit {
+    margin-top: 1vw;
     text-decoration: none;
 }
 
-.campus-card-view-button-edit{
-    width: 84px;
-    height: 26px;
+.campus-card-view-button-edit {
+    width: 4vw;
+    height: 1.5vw;
     border: none;
-    border-radius: 25px;
+    border-radius: 1vw;
     background-color: rgb(145, 31, 222);
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
-.campus-card-view-button-edit:hover{
+.campus-card-view-button-edit:hover {
     background-color: rgb(126, 18, 198);
 }
 
-.campus-card-view-button-delete{
-    margin-top: 20px;
+.campus-card-view-button-delete {
     text-decoration: none;
-    width: 90px;
-    height: 26px;
+    width: 4vw;
+    height: 1.5vw;
     border: none;
-    border-radius: 25px;
+    border-radius: 1vw;
     background-color: rgb(215, 28, 28);
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
-.campus-card-view-button-delete:hover{
+.campus-card-view-button-delete:hover {
     background-color: rgb(191, 25, 25);
 }
 
-.campus-card-buttons{
+.campus-card-buttons {
     display: flex;
     justify-content: space-between;
-    margin-right: 20px;
+    margin-right: 0.5vw;
+    margin-top: 2.3vw;
 }

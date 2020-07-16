@@ -1,89 +1,92 @@
-.student-card-container{
+.student-card-container {
     display: inline-block;
-    height: 190px;
+    height: 10vw;
     width: 28%;
     background-color: whitesmoke;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     margin-left: 4%;
     border: solid 1px rgb(203, 203, 203);
-    border-radius: 18px;
-    padding-bottom: 12px;
+    border-radius: 1vw;
+    padding-bottom: 1vw;
 }
 
-.student-card-image{
-    width: 150px;
-    height: 150px;
+.student-card-image {
+    width: 8vw;
+    height: 8vw;
     margin: 2%;
     border-radius: 50%;
 }
 
-.student-text-section{
+.student-text-section {
     float: right;
     width: 62%;
     margin-top: 3%;
 }
 
-.student-card-name{
-    font-size: 28px;
+.student-card-name {
+    font-size: 1.5vw;
 }
 
-.student-card-gpa{
-    margin-top: 10px;
+.student-card-gpa {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     font-weight: bolder;
+    font-size: .8vw;
 }
 
-.student-card-email{
-    font-size: 15px;
-    margin-top: 10px;
+.student-card-email {
+    font-size: .8vw;
+    margin-top: .5vw;
 }
 
-.student-card-campus{
-    margin-top: 10px;
+.student-card-campus {
+    font-size: .8vw;
+    margin-top: .5vw;
 }
 
-.student-card-view-link{
+.student-card-view-link {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 1vw;
     text-decoration: none;
 }
 
-.student-card-view-button{
-    width: 90px;
-    height: 26px;
+.student-card-view-button {
+    width: 5vw;
+    height: 1.5vw;
     border: none;
-    border-radius: 25px;
+    border-radius: 1vw;
     background-color: rgb(57, 161, 240);
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
-.student-card-view-button:hover{
+.student-card-view-button:hover {
     background-color: rgb(30, 148, 238);
 }
 
-.student-card-view-link-edit{
-    margin-top: 20px;
+.student-card-view-link-edit {
+    margin-top: 1vw;
     text-decoration: none;
-    /* margin-right: 160px; */
 }
 
-.student-card-view-button-edit{
-    width: 90px;
-    height: 26px;
+.student-card-view-button-edit {
+    width: 5vw;
+    height: 1.5vw;
     border: none;
-    border-radius: 25px;
+    border-radius: 1vw;
     background-color: rgb(145, 31, 222);
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
-.student-card-view-button-edit:hover{
+.student-card-view-button-edit:hover {
     background-color: rgb(126, 18, 198);
 }
 
-.student-card-buttons{
+.student-card-buttons {
     display: flex;
     justify-content: space-between;
     margin-right: 25%;
+    margin-top: -.3vw;
 }

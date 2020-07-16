@@ -35,8 +35,10 @@ class CampusCard extends Component{
                                 Edit
                             </button>
                         </Link>
+                        <div className="campus-card-view-link-edit">
                         <button className="campus-card-view-button-delete" onClick={() => {this.props.removeCampus(this.props.campus)}}>Delete
                         </button>
+                        </div>
                     </div>
                 </div>
             </div>

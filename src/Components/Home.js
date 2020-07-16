@@ -11,7 +11,9 @@ class Home extends Component{
                     <Link className="navbar-link-right" to="/campuses">Manage Campuses</Link>
                     <Link className="navbar-link-right" to="/students">Manage Students</Link>
                 </div>
+                
             </div>
+            
         );
     }
 }

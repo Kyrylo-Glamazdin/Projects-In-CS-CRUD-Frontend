@@ -84,9 +84,11 @@ class SingleStudentView extends PureComponent{
                         <div className="single-student-view-email">
                             Email: {this.props.student.email}
                         </div>
+                        <Link to = {"/students/"}>
                         <button className="single-student-view-delete-button" onClick={this.handleDelete}>
                             Delete
                         </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="student-campus-section">
