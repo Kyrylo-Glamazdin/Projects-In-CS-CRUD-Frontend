@@ -11,9 +11,11 @@ class StudentRegistrationForm extends Component{
         super(props)
 
         this.state = {
-            name: "",
+            firstName: "",
+            lastName: "",
             newStudentId: -1,
-            registered: false
+            registered: false,
+            nameErrors: <div/>
         }
 
         this.handleRegistration = this.handleRegistration.bind(this);
@@ -21,14 +23,35 @@ class StudentRegistrationForm extends Component{
     }
 
     handleInputChange(event){
-        this.setState({name: event.target.value})
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
+
 
     async handleRegistration(event){
         event.preventDefault();
 
+        let errorFound = false;
+
+        if (this.state.firstName.length === 0 || this.state.lastName.length === 0){
+            this.setState({
+                nameErrors: <div className="standard-error-message">Student first or last name cannot be blank</div>
+            })
+            errorFound = true;
+        }
+        else{
+            this.setState({nameErrors: <div/>})
+        }
+
+        if (errorFound){
+            return
+        }
+
         let newStudent = {
-            name: this.state.name,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
             image: student_image_1
         }
 
@@ -59,10 +82,15 @@ class StudentRegistrationForm extends Component{
                 <div className="registration-header">Register a New Student
                 </div>
                 <form className="registration-form" onSubmit={this.handleRegistration}>
-                    <label className="registration-label">Student Name</label>
-                    <input className="registration-input" type = "text" onChange={this.handleInputChange}/>
+                    <label className="registration-label">First Name</label>
+                    <input className="registration-input" type = "text" name ="firstName" onChange={this.handleInputChange}/>
+                    <label className="registration-label">Last Name</label>
+                    <input className="registration-input" type = "text" name ="lastName" onChange={this.handleInputChange}/>
+                    <label className="registration-label">Email</label>
+                    <input className="registration-input" type = "email" name ="email" onChange={this.handleInputChange}/>
                     <input className="complete-registration-button" type="submit" value="Add Student"/>
                 </form>
+                {this.state.nameErrors}
             </div>
         );
     }

@@ -10,10 +10,11 @@ class StudentEditForm extends Component{
         super(props)
 
         this.state = {
-            name: this.props.student.name,
+            firstName: this.props.student.firstName,
+            lastName: this.props.student.lastName,
             gpa: this.props.student.gpa,
             email: this.props.student.email,
-            image: "",
+            image: this.props.student.image,
             nameErrors: <div/>,
             gpaErrors: <div/>,
             edited: false
@@ -34,9 +35,9 @@ class StudentEditForm extends Component{
 
         let errorFound = false;
 
-        if (this.state.name.length === 0){
+        if (this.state.firstName.length === 0 || this.state.lastName.length === 0){
             this.setState({
-                nameErrors: <div className="standard-error-message">Student Name cannot be blank</div>
+                nameErrors: <div className="standard-error-message">Student first or last name cannot be blank</div>
             })
             errorFound = true;
         }
@@ -63,7 +64,8 @@ class StudentEditForm extends Component{
             updatedStudent.image = this.state.image
         }
         
-        updatedStudent.name = this.state.name;
+        updatedStudent.firstName = this.state.firstName;
+        updatedStudent.lastName = this.state.lastName;
         updatedStudent.gpa = this.state.gpa;
         updatedStudent.email = this.state.email;
 
@@ -89,8 +91,12 @@ class StudentEditForm extends Component{
                 </div>
                 <form className="student-edit-form-container" onSubmit={this.handleSubmit}>
                     <div className="input-section">
-                        <label className="student-edit-label">Student Name</label>
-                        <input className="student-edit-input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                        <label className="student-edit-label">Fist Name</label>
+                        <input className="student-edit-input" type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange}/>
+                    </div>
+                    <div className="input-section">
+                        <label className="student-edit-label">Last Name</label>
+                        <input className="student-edit-input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
                     </div>
                     <div className="input-section">
                         <label className="student-edit-label">GPA</label>
