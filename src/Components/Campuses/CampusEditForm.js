@@ -48,16 +48,6 @@ class CampusEditForm extends Component{
             this.setState({nameErrors: <div/>})
         }
 
-        if (parseFloat(this.state.gpa) < 0 || parseFloat(this.state.gpa) > 4){
-            this.setState({
-                gpaErrors: <div className="standard-error-message">GPA must be a number between 0.0 and 4.0</div>
-            })
-            errorFound = true;
-        }
-        else{
-            this.setState({gpaErrors: <div/>})
-        }
-
         if (errorFound){
             return
         }

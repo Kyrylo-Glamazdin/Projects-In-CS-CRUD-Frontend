@@ -4,7 +4,7 @@ import {createCampus} from '../../Actions';
 import axios from 'axios';
 import {Redirect} from 'react-router';
 import campus_image_1 from '../../Styles/Images/standard_university_image_1.png';
-import '../../Styles/Students/StudentRegistrationForm.css'; //same as for campuses
+import '../../Styles/Students/StudentRegistrationForm.css'; //same style as students
 
 class CampusRegistrationForm extends Component{
 
@@ -13,8 +13,11 @@ class CampusRegistrationForm extends Component{
 
         this.state = {
             name: "",
+            address: "",
             newCampusId: -1,
-            registered: false
+            registered: false,
+            nameErrors: <div/>,
+            addressErrors: <div/>
         }
 
         this.handleRegistration = this.handleRegistration.bind(this);
@@ -22,15 +25,44 @@ class CampusRegistrationForm extends Component{
     }
 
     handleInputChange(event){
-        this.setState({name: event.target.value})
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
 
     async handleRegistration(event){
         event.preventDefault();
 
+        let errorFound = false;
+
+        if (this.state.name.length === 0){
+            this.setState({
+                nameErrors: <div className="standard-error-message">Campus Name cannot be blank</div>
+            })
+            errorFound = true;
+        }
+        else{
+            this.setState({nameErrors: <div/>})
+        }
+
+        if (this.state.address.length === 0){
+            this.setState({
+                addressErrors: <div className="standard-error-message">Campus Address cannot be blank</div>
+            })
+            errorFound = true;
+        }
+        else{
+            this.setState({nameErrors: <div/>})
+        }
+
+        if (errorFound){
+            return
+        }
+
         let newCampus = {
             name: this.state.name,
+            address: this.state.address,
             image: campus_image_1
         }
 
@@ -63,9 +95,13 @@ class CampusRegistrationForm extends Component{
                 </div>
                 <form className="registration-form" onSubmit={this.handleRegistration}>
                     <label className="registration-label">Campus Name</label>
-                    <input className="registration-input" type = "text" onChange={this.handleInputChange}/>
+                    <input className="registration-input" type = "text" name = "name" onChange={this.handleInputChange}/>
+                    <label className="registration-label">Campus Address</label>
+                    <input className="registration-input" type = "text" name = "address" onChange={this.handleInputChange}/>
                     <input className="complete-registration-button" type="submit" value="Add Campus"/>
                 </form>
+                {this.state.nameErrors}
+                {this.state.addressErrors}
             </div>
         );
     }
