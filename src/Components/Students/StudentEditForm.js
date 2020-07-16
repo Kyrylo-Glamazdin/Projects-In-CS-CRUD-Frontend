@@ -16,6 +16,7 @@ class StudentEditForm extends Component{
             email: this.props.student.email,
             image: this.props.student.image,
             nameErrors: <div/>,
+            emailErrors: <div/>,
             gpaErrors: <div/>,
             edited: false
         }
@@ -43,6 +44,16 @@ class StudentEditForm extends Component{
         }
         else{
             this.setState({nameErrors: <div/>})
+        }
+
+        if (this.state.email.length === 0){
+            this.setState({
+                emailErrors: <div className="standard-error-message">Email field must contain a valid email</div>
+            })
+            errorFound = true;
+        }
+        else{
+            this.setState({emailErrors: <div/>})
         }
 
         if (parseFloat(this.state.gpa) < 0 || parseFloat(this.state.gpa) > 4){
@@ -113,6 +124,7 @@ class StudentEditForm extends Component{
                     <input className="edit-submit-button" type="submit" value="Save Changes"/>
                 </form>
                 {this.state.nameErrors}
+                {this.state.emailErrors}
                 {this.state.gpaErrors}
             </div>
         );

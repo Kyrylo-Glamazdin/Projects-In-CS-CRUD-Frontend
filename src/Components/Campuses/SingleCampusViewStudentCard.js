@@ -9,7 +9,7 @@ class SingleCampusViewStudentCard extends Component{
                 <img className="single-campus-student-card-image" src = {this.props.student.image} alt="student"/>
                 <div className="single-campus-student-text-section">
                     <div className="single-campus-student-card-name">
-                        {this.props.student.name}
+                        {this.props.student.firstName} {this.props.student.lastName}
                     </div>
                     <div className="single-campus-student-card-gpa">
                         GPA: {this.props.student.gpa}
