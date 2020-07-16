@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import '../Styles/Homepage.css';
 import Logo from '../Styles/Images/university_logo.jpg';
 
@@ -8,7 +7,7 @@ class Homepage extends Component{
     render(){
         return(
             <div className="Homepage">
-                <div>Welcome to our Student and Campus Manager</div>
+                <div className="homepage-text">Welcome to our Student and Campus Manager</div>
                 <img src = {Logo} alt ="Logo" class = "center"
                 height = {700}
                 width = {700}
