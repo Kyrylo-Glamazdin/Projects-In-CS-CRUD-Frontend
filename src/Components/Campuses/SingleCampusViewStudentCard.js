@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../../Styles/Campuses/SingleCampusViewStudentCard.css';
 
+//component for displaying registered students in campus's single view
 class SingleCampusViewStudentCard extends Component{
     render(){
         return(

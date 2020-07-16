@@ -4,18 +4,22 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import {createCampus, createStudent} from './Actions';
 
+//home component (navbar)
 import Home from './Components/Home.js';
 
+//campus components
 import ListOfCampuses from './Components/Campuses/ListOfCampuses.js';
 import CampusRegistrationForm from './Components/Campuses/CampusRegistrationForm.js';
 import SingleCampusView from './Components/Campuses/SingleCampusView.js';
 import CampusEditForm from './Components/Campuses/CampusEditForm.js';
 
+//student components
 import ListOfStudents from './Components/Students/ListOfStudents.js';
 import StudentRegistrationForm from './Components/Students/StudentRegistrationForm.js';
 import SingleStudentView from './Components/Students/SingleStudentView.js';
 import StudentEditForm from './Components/Students/StudentEditForm.js';
 
+//main component of the app with initial data fetches and routes
 class App extends Component {
   constructor(){
     super()
@@ -30,11 +34,12 @@ class App extends Component {
     this.loadStudents();
   }
 
-  //loads campuses from the database
+  //loads campuses from the database and populates the redux store
   async loadCampuses(){
     axios.get("http://localhost:4200/api/campuses")
     .then(res => {
       let result = res.data;
+      console.log(res.data)
       for (let i = 0; i < result.length; i++){
         this.props.createCampus(result[i]);
       }
@@ -44,11 +49,12 @@ class App extends Component {
     })
   }
 
-  //loads students from the database
+  //loads students from the database and populates the redux store
   async loadStudents(){
     axios.get("http://localhost:4200/api/students")
     .then(res => {
       let result = res.data;
+      console.log(res.data)
       for (let i = 0; i < result.length; i++){
         this.props.createStudent(result[i]);
       }

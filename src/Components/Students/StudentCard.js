@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import '../../Styles/Students/StudentCard.css';
 
+//infividual student card that appears on student list
 class StudentCard extends Component{
     render(){
         //finding this student's campus
@@ -12,6 +13,7 @@ class StudentCard extends Component{
         if (studentCampus.length > 0){
             studentCampusName = studentCampus[0].name
         }
+        //display student info
         return(
             <div className="student-card-container">
                 <img className="student-card-image" src = {this.props.student.image} alt="student"/>
@@ -46,6 +48,7 @@ class StudentCard extends Component{
     }
 }
 
+//getting campuses from the redux store to find the name of the corresponding campus
 const mapStateToProps = state => {
     return{
       campuses: state.campuses

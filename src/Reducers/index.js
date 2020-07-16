@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux';
 
+//empty array to be filled with data from the backend
+
 let campuses = [
 
 ];
@@ -8,6 +10,7 @@ let students = [
 
 ];
 
+//reducer for campuses. performs creating, updating, and deleting campuses in the redux store
 const campusesReducer = (prevCampuses = campuses, action) => {
     switch(action.type){
         case "CREATE_CAMPUS":
@@ -27,6 +30,7 @@ const campusesReducer = (prevCampuses = campuses, action) => {
     }
 }
 
+//reducer for students. performs creating, updating, and deleting students in the redux store
 const studentsReducer = (prevStudents = students, action) => {
     switch(action.type){
         case "CREATE_STUDENT":

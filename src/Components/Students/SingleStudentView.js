@@ -6,6 +6,7 @@ import {updateStudent, deleteStudent} from '../../Actions';
 import SingleStudentViewCampusCard from './SingleStudentViewCampusCard.js';
 import '../../Styles/Students/SingleStudentView.css';
 
+//component for displaying all of the student-related information
 class SingleStudentView extends PureComponent{
     constructor(props){
         super(props)
@@ -14,13 +15,16 @@ class SingleStudentView extends PureComponent{
             selectedCampus: this.props.student.campusId
         }
 
+        //bindings
         this.submitCampusSelection = this.submitCampusSelection.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleCampusSelection = this.handleCampusSelection.bind(this);
         this.removeCampusFromStudent = this.removeCampusFromStudent.bind(this);
     }
 
+    //function that deletes student from the database
     handleDelete(){
+        //delete from the database, then from the redux store
         axios.delete("http://localhost:4200/api/students/" + this.props.student.id)
         .then(() => {
             this.props.deleteStudent(this.props.student);
@@ -36,6 +40,7 @@ class SingleStudentView extends PureComponent{
         })
     }
 
+    //function for registering student at a certain campus
     async submitCampusSelection(){
         let updatedStudent = this.props.student;
         updatedStudent.campusId = parseInt(this.state.selectedCampus)
@@ -47,6 +52,7 @@ class SingleStudentView extends PureComponent{
         this.forceUpdate();
     }
 
+    //function for removing a student from campus
     async removeCampusFromStudent(){
         let updatedStudent = this.props.student;
         updatedStudent.campusId = null;
@@ -59,11 +65,14 @@ class SingleStudentView extends PureComponent{
     }
 
     render(){
+        //find campus that the student is registered in
         let studentCampus = this.props.campuses.filter(campus => (this.props.student.campusId === campus.id));
+        //find all other campuses for the campus selection dropdown
         let allOtherCampuses = this.props.campuses.filter(campus => (this.props.student.campusId !== campus.id));
 
         return(
             <div className="single-student-main">
+                {/* student info */}
                 <div className="single-student-view-container">
                     <img className="single-student-image" src = {this.props.student.image} alt="student"/>
                     <div className="single-student-view-text-section">
@@ -89,6 +98,7 @@ class SingleStudentView extends PureComponent{
                     </div>
                 </div>
                 <div className="student-campus-section">
+                    {/* campus info */}
                     <div className="student-selected-campus">
                         <SingleStudentViewCampusCard campus={studentCampus}/>
                     </div>

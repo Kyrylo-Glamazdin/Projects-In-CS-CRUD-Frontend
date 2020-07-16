@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../Styles/Campuses/CampusEditFormStudentCard.css';
 
+//functional component for displaying students in CampusEditForm. can be removed by clicking the 'Remove from Campus' button
 function EditCampusStudentCard(props){
     return(
         <div className="edit-campus-student-card-container">

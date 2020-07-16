@@ -3,8 +3,10 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import '../../Styles/Campuses/CampusCard.css';
 
+//individual campus card that is displayed in the ListOfCampuses. renders all of the relevant campus-related information
 class CampusCard extends Component{
     render(){
+        //finding number of students on campus
         let studentsInCampus = this.props.students.filter(student => (student.campusId === this.props.campus.id));
         let numOfStudentsText = "";
         if (studentsInCampus.length === 1){
@@ -14,6 +16,7 @@ class CampusCard extends Component{
             numOfStudentsText = studentsInCampus.length + " Students";
         }
 
+        //rendering the information
         return(
             <div className="campus-card-container">
                 <img className="campus-card-image" src = {this.props.campus.image} alt="campus"/>
@@ -46,6 +49,7 @@ class CampusCard extends Component{
     }
 }
 
+//getting students from the store to calculate how many of them are registered at this particular campus
 const mapStateToProps = state => {
     return{
       students: state.students

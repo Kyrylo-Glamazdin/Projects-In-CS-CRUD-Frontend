@@ -6,6 +6,7 @@ import {deleteCampus} from '../../Actions';
 import CampusCard from './CampusCard.js';
 import '../../Styles/Campuses/ListOfCampuses.css';
 
+//component that displays the list of campuses
 class ListOfCampuses extends Component{
     constructor(props){
         super(props)
@@ -13,7 +14,9 @@ class ListOfCampuses extends Component{
         this.removeCampus = this.removeCampus.bind(this);
     }
 
+    //function that removes the campus from the database. gets passed as props to each campus on the list
     removeCampus(campus){
+        //delete from the database, then delete locally
         axios.delete("http://localhost:4200/api/campuses/" + campus.id)
         .then(() => {
             this.props.deleteCampus(campus)
@@ -23,6 +26,7 @@ class ListOfCampuses extends Component{
         })
     }
 
+    //displays the list of campuses in the database or shows a message that there are no campuses (if none are registered)
     render(){
         if (this.props.campuses.length > 0){
             return(
@@ -53,6 +57,7 @@ class ListOfCampuses extends Component{
                             </button>
                         </Link>
                     </div>
+                    {/* message that there's no registered campuses */}
                     <div className="empty-campuses-list">
                         There are no campuses registered in the database.
                     </div>
