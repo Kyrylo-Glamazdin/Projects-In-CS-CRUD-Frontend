@@ -152,7 +152,7 @@ class CampusEditForm extends Component{
                             </option> 
                             {allOtherStudents.map(studentDropdown => (
                                 <option key = {"studentDropdown" + studentDropdown.id} value={studentDropdown.id}>
-                                    {studentDropdown.name}
+                                    {studentDropdown.firstName} {studentDropdown.lastName}
                                 </option>
                             ))}
                         </select>

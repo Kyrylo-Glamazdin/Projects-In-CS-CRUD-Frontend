@@ -73,10 +73,7 @@ class SingleStudentView extends PureComponent{
                             </button>
                         </Link>
                         <div className="single-student-view-name">
-                            {this.props.student.firstName}
-                        </div>
-                        <div className="single-student-view-name">
-                            {this.props.student.lastName}
+                            {this.props.student.firstName} {this.props.student.lastName}
                         </div>
                         <div className="single-student-view-gpa">
                             GPA: {this.props.student.gpa}

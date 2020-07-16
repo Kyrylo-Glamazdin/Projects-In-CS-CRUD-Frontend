@@ -10,7 +10,7 @@ function EditCampusStudentCard(props){
                     Remove from Campus
                 </button>
                 <div className="stud-card-name">
-                    {props.student.name}
+                    {props.student.firstName} {props.student.lastName}
                 </div>
             </div>
         </div>

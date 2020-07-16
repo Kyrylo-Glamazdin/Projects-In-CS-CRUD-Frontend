@@ -13,9 +13,11 @@ class StudentRegistrationForm extends Component{
         this.state = {
             firstName: "",
             lastName: "",
+            email: "",
             newStudentId: -1,
             registered: false,
-            nameErrors: <div/>
+            nameErrors: <div/>,
+            emailErrors: <div/>
         }
 
         this.handleRegistration = this.handleRegistration.bind(this);
@@ -42,6 +44,16 @@ class StudentRegistrationForm extends Component{
         }
         else{
             this.setState({nameErrors: <div/>})
+        }
+
+        if (this.state.email.length === 0){
+            this.setState({
+                emailErrors: <div className="standard-error-message">Email field must contain a valid email</div>
+            })
+            errorFound = true;
+        }
+        else{
+            this.setState({emailErrors: <div/>})
         }
 
         if (errorFound){
@@ -91,6 +103,7 @@ class StudentRegistrationForm extends Component{
                     <input className="complete-registration-button" type="submit" value="Add Student"/>
                 </form>
                 {this.state.nameErrors}
+                {this.state.emailErrors}
             </div>
         );
     }
